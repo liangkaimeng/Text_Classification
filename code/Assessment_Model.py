@@ -17,7 +17,7 @@ model_file = r"D:\LKM\MachineLearning\TextClassification\code\LogistModel.joblib
 def Model_Assess():
     dataset_test = load_files(container_path=file, categories=categories)
     tf_transformer = TfidfVectorizer(stop_words='english', decode_error='ignore')
-    x = tf_transformer.fit_transform(dataset_test.data)
+    x = tf_transformer.transform(dataset_test.data)
     y = dataset_test.target
     model = load(model_file)
     y0 = model.predict(x)
